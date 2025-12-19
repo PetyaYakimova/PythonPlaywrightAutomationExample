@@ -1,19 +1,25 @@
 import os
 import pytest
-from playwright.sync_api import sync_playwright
 
 BASE_URL = os.getenv("BASE_URL", "https://automationexercise.com")
 
 
-@pytest.fixture(scope="session")
-def base_url():
-    return BASE_URL
+@pytest.fixture(scope="function")
+def page(context):
+    """
+    Custom page fixture that automatically accepts cookies
+    """
+    page = context.new_page()
+    page.goto(BASE_URL)
 
+    # Handle cookie consent if present
+    try:
+        consent_button = page.get_by_role("button", name="Consent")
+        if consent_button.is_visible():
+            consent_button.click()
+    except Exception:
+        # If the banner doesn't appear, continue silently
+        pass
 
-# Optional fixture showing how to provide Playwright's "page" using pytest-playwright
-# If you installed pytest-playwright, you can just use the 'page' fixture from the plugin
-# but here's a helper if you want manual control:
-@pytest.fixture(scope="session")
-def playwright_instance():
-    with sync_playwright() as p:
-        yield p
+    yield page
+    page.close()

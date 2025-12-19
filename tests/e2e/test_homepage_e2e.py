@@ -1,11 +1,10 @@
 import pytest
-from tests.e2e.pages.home_page import HomePage
+from .pages.home_page import HomePage
 
 
 @pytest.mark.e2e
-def test_homepage_title_and_products(page, base_url):
-    home = HomePage(page, base_url)
-    home.goto()
+def test_homepage_title_and_products(page):
+    home = HomePage(page)
 
     # assert title contains site name
     assert "Automation Exercise" in home.title()
