@@ -2,12 +2,8 @@ from playwright.sync_api import Page
 
 
 class HomePage:
-    def __init__(self, page: Page, base_url: str):
+    def __init__(self, page: Page):
         self.page = page
-        self.base_url = base_url
-
-    def goto(self):
-        self.page.goto(self.base_url)
 
     def title(self):
         return self.page.title()
