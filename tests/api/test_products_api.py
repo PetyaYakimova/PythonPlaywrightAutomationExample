@@ -1,4 +1,5 @@
 import pytest
+import pytest_playwright
 
 
 @pytest.mark.api
