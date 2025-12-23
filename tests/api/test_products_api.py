@@ -2,11 +2,11 @@ import pytest
 
 
 @pytest.mark.api
-def test_get_all_products(api_request_context):
+def test_get_all_products(request):
     # api_request_context fixture is provided by pytest-playwright when pytest-playwright is installed.
     # alternative: use requests if you prefer.
     url = "https://automationexercise.com/api/productsList"
-    resp = api_request_context.get(url)
+    resp = request.get(url)
     assert resp.status == 200
 
     data = resp.json()
