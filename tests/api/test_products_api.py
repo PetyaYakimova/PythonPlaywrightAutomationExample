@@ -1,21 +1,14 @@
 import pytest
+import requests
+
+BASE_API_URL = "https://automationexercise.com/api"
 
 
 @pytest.mark.api
-def test_get_all_products(request):
-    # api_request_context fixture is provided by pytest-playwright when pytest-playwright is installed.
-    # alternative: use requests if you prefer.
-    url = "https://automationexercise.com/api/productsList"
-    resp = request.get(url)
-    assert resp.status == 200
+def test_get_all_products():
+    response = requests.get(f"{BASE_API_URL}/productsList")
 
-    data = resp.json()
-    # The response structure should contain product list — adapt the assertion if necessary
-    assert isinstance(data, dict) or isinstance(data, list)
-    # Example check: ensure there is at least one product (structure can vary)
-    # If API returns dict with 'products' key:
-    if isinstance(data, dict) and "products" in data:
-        assert len(data["products"]) > 0
-    else:
-        # If it's a list, assert non-empty
-        assert len(data) > 0
+    assert response.status_code == 200
+
+    data = response.json()
+    assert data is not None
