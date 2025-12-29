@@ -1,12 +1,10 @@
 import pytest
 import requests
 
-BASE_API_URL = "https://automationexercise.com/api"
-
 
 @pytest.mark.api
-def test_get_all_products():
-    response = requests.get(f"{BASE_API_URL}/productsList")
+def test_get_all_products(api_base_url):
+    response = requests.get(f"{api_base_url}/productsList")
 
     assert response.status_code == 200
 
