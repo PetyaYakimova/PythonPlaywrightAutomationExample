@@ -23,3 +23,8 @@ def page(context):
 
     yield page
     page.close()
+
+
+@pytest.fixture(scope="session")
+def api_base_url():
+    return "https://automationexercise.com/api"
