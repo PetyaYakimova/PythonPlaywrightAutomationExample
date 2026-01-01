@@ -1,5 +1,6 @@
 import os
 import pytest
+from utils.api_client import ApiClient
 
 BASE_URL = os.getenv("BASE_URL", "https://automationexercise.com")
 
@@ -28,3 +29,8 @@ def page(context):
 @pytest.fixture(scope="session")
 def api_base_url():
     return "https://automationexercise.com/api"
+
+
+@pytest.fixture(scope="session")
+def api_client(api_base_url):
+    return ApiClient(api_base_url)
