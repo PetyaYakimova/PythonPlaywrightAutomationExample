@@ -1,10 +1,9 @@
 import pytest
-import requests
 
 
 @pytest.mark.api
-def test_get_all_brands(api_base_url):
-    response = requests.get(f"{api_base_url}/brandsList")
+def test_get_all_brands(api_client):
+    response = api_client.get("/brandsList")
 
     assert response.status_code == 200
 
