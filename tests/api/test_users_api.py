@@ -1,15 +1,14 @@
 import pytest
-import requests
 
 
 @pytest.mark.api
-def test_get_user_details_by_email(api_base_url):
+def test_get_user_details_by_email(api_client):
     params = {
         "email": "test@test.com"
     }
 
-    response = requests.get(
-        f"{api_base_url}/getUserDetailByEmail",
+    response = api_client.get(
+        "/getUserDetailByEmail",
         params=params
     )
 
