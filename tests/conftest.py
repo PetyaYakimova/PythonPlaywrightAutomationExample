@@ -1,17 +1,33 @@
 import os
 import pytest
 from utils.api_client import ApiClient
+from dotenv import load_dotenv
 
-BASE_URL = os.getenv("BASE_URL", "https://automationexercise.com")
+load_dotenv()
+
+
+@pytest.fixture(scope="session")
+def api_base_url():
+    return os.getenv("BASE_API_URL")
+
+
+@pytest.fixture(scope="session")
+def base_url():
+    return os.getenv("BASE_UI_URL")
+
+
+@pytest.fixture(scope="session")
+def api_client(api_base_url):
+    return ApiClient(api_base_url)
 
 
 @pytest.fixture(scope="function")
-def page(context):
+def page(context, base_url):
     """
     Custom page fixture that automatically accepts cookies
     """
     page = context.new_page()
-    page.goto(BASE_URL)
+    page.goto(base_url)
 
     # Handle cookie consent if present
     try:
@@ -24,13 +40,3 @@ def page(context):
 
     yield page
     page.close()
-
-
-@pytest.fixture(scope="session")
-def api_base_url():
-    return "https://automationexercise.com/api"
-
-
-@pytest.fixture(scope="session")
-def api_client(api_base_url):
-    return ApiClient(api_base_url)
