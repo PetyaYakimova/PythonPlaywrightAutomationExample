@@ -17,3 +17,11 @@ def test_search_product(api_client):
     data = response.json()
     assert "products" in data
     assert len(data["products"]) > 0
+
+
+@pytest.mark.api
+def test_search_product_without_payload(api_client):
+    response = api_client.post("/searchProduct")
+
+    assert response.status_code == 200
+    assert "products" not in response.json()
