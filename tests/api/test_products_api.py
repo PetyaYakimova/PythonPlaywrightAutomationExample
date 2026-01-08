@@ -14,3 +14,5 @@ def test_get_all_products(api_client):
 
     with open("schemas/products_schema.json") as f:
         schema = json.load(f)
+
+    validate(instance=data, schema=schema)
