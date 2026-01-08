@@ -11,3 +11,6 @@ def test_get_all_products(api_client):
 
     data = response.json()
     assert data is not None
+
+    with open("schemas/products_schema.json") as f:
+        schema = json.load(f)
