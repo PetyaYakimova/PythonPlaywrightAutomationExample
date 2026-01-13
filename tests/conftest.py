@@ -40,3 +40,14 @@ def page(context, base_url):
 
     yield page
     page.close()
+
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item):
+    outcome = yield
+    rep = outcome.get_result()
+
+    if rep.when == "call" and rep.failed:
+        page = item.funcargs.get("page")
+        if page:
+            page.screenshot(path=f"screenshots/{item.name}.png")
