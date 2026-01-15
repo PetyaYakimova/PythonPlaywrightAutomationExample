@@ -35,3 +35,15 @@ def test_products_have_required_fields(api_client):
 
     for field in required_fields:
         assert field in product
+
+
+@pytest.mark.api
+def test_products_have_categories(api_client):
+    response = api_client.get("/productsList")
+    data = response.json()
+
+    products = data["products"]
+
+    categories = {p["category"]["category"] for p in products}
+
+    assert len(categories) > 0
