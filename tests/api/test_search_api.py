@@ -38,3 +38,13 @@ def test_search_returns_relevant_products(api_client):
 
     for product in products:
         assert search_term.lower() in product["name"].lower()
+
+
+@pytest.mark.api
+def test_search_with_empty_string(api_client):
+    response = api_client.post("/searchProduct", data={"search_product": ""})
+
+    assert response.status_code == 200
+    products = response.json()["products"]
+
+    assert len(products) == 0
