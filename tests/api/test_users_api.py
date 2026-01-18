@@ -23,3 +23,14 @@ def test_get_user_without_email(api_client):
     response = api_client.get("/getUserDetailByEmail")
 
     assert response.status_code == 200
+
+
+@pytest.mark.api
+def test_get_user_with_invalid_email(api_client):
+    response = api_client.get(
+        "/getUserDetailByEmail",
+        params={"email": "notarealemail@test.com"}
+    )
+
+    assert response.status_code == 200
+    assert "user" not in response.json()
