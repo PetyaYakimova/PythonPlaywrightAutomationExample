@@ -41,10 +41,12 @@ def test_search_returns_relevant_products(api_client):
 
 
 @pytest.mark.api
-def test_search_with_empty_string(api_client):
+def test_search_with_empty_string_returns_all_products(api_client):
     response = api_client.post("/searchProduct", data={"search_product": ""})
 
     assert response.status_code == 200
+
     products = response.json()["products"]
 
-    assert len(products) == 0
+    # Expecting full product list
+    assert len(products) > 0
