@@ -1,10 +1,7 @@
-from playwright.sync_api import Page
+from .base_page import BasePage
 
 
-class HomePage:
-    def __init__(self, page: Page):
-        self.page = page
-
+class HomePage(BasePage):
     def title(self):
         return self.page.title()
 
