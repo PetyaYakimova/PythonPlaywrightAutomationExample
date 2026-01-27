@@ -17,3 +17,20 @@ def test_add_product_to_cart(page):
 
     cart = CartPage(page)
     assert cart.has_items()
+
+
+@pytest.mark.e2e
+def test_remove_product_from_cart(page):
+    page.goto("https://automationexercise.com/products")
+
+    page.hover(".product-image-wrapper")
+    page.click("text=Add to cart")
+    page.click("text=View Cart")
+
+    cart = CartPage(page)
+
+    # Remove first item
+    page.click(".cart_quantity_delete")
+
+    # Assert cart empty
+    assert page.locator("text=Cart is empty").is_visible()
