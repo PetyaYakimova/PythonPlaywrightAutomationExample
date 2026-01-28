@@ -1,3 +1,5 @@
+import time
+
 import pytest
 
 
@@ -8,7 +10,7 @@ def test_open_product_details(page):
     # Click first product "View Product"
     page.click("text=View Product")
 
-    # Assert product details visible
+    # Assert product details visible - need to fix this the first assertion doesn't pass
     assert page.locator("text=Availability").is_visible()
     assert page.locator("text=Condition").is_visible()
     assert page.locator("text=Brand").is_visible()
