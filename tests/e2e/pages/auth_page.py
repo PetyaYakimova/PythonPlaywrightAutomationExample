@@ -1,6 +1,7 @@
 from .base_page import BasePage
 
 
+#Move to login page
 class AuthPage(BasePage):
     def open(self):
         self.page.goto("https://automationexercise.com/login")
