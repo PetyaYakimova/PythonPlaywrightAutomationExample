@@ -7,3 +7,6 @@ class CartPage(BasePage):
 
     def has_items(self):
         return self.page.locator(".cart_product").count() > 0
+
+    def proceed_to_checkout(self):
+        self.click("text=Proceed To Checkout")
