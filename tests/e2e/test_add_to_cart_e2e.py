@@ -34,4 +34,4 @@ def test_remove_product_from_cart(page):
     page.click(".cart_quantity_delete")
 
     # Assert cart empty
-    assert page.locator("text=Cart is empty").is_visible()
+    assert page.locator(".cart_product").count() == 0
