@@ -21,7 +21,8 @@ def test_add_product_to_cart(page):
 
 @pytest.mark.e2e
 def test_remove_product_from_cart(page):
-    page.goto("https://automationexercise.com/products")
+    products = ProductsPage(page)
+    products.open()
 
     page.hover(".product-image-wrapper")
     page.click("text=Add to cart")
