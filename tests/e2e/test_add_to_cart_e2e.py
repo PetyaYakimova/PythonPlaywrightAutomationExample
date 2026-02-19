@@ -1,6 +1,7 @@
 import pytest
 from tests.e2e.pages.products_page import ProductsPage
 from tests.e2e.pages.cart_page import CartPage
+from playwright.sync_api import expect
 
 
 @pytest.mark.e2e
@@ -34,4 +35,4 @@ def test_remove_product_from_cart(page):
     page.click(".cart_quantity_delete")
 
     # Assert cart empty
-    assert page.locator(".cart_product").count() == 0
+    expect(page.locator(".cart_product")).to_have_count(0)
