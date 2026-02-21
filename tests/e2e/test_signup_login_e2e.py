@@ -1,6 +1,7 @@
 import pytest
 from tests.e2e.pages.login_page import LoginPage
 from utils.test_data import user_data
+from playwright.sync_api import expect
 
 
 @pytest.mark.e2e
@@ -13,7 +14,7 @@ def test_user_can_signup_and_login(page):
     login.start_signup(data["name"], data["email"])
     login.complete_signup(data["password"])
 
-    assert login.success_message_visible()
+    expect(page.locator("text=Account Created!")).to_be_visible()
 
 
 @pytest.mark.e2e
