@@ -12,7 +12,7 @@ def test_user_can_signup_and_login(page):
     login.open()
 
     login.start_signup(data["name"], data["email"])
-    login.complete_signup(data["password"])
+    login.complete_signup(data)
 
     expect(page.locator("text=Account Created!")).to_be_visible()
 
