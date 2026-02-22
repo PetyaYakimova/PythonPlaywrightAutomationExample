@@ -13,9 +13,9 @@ class LoginPage(BasePage):
     def error_visible(self):
         return self.is_visible("text=Your email or password is incorrect!")
 
-    def start_signup(self, name, email):
-        self.fill("input[data-qa='signup-name']", name)
-        self.fill("input[data-qa='signup-email']", email)
+    def start_signup(self, data):
+        self.fill("input[data-qa='signup-name']", data["name"])
+        self.fill("input[data-qa='signup-email']", data["email"])
         self.click("button[data-qa='signup-button']")
 
     def complete_signup(self, data):
