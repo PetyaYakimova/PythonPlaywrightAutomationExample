@@ -16,6 +16,9 @@ def test_user_can_signup_and_login(page):
 
     expect(page.locator("text=Account Created!")).to_be_visible()
 
+    page.click("text=Continue")
+    expect(page.locator("text=Logged in as")).to_be_visible()
+
 
 @pytest.mark.e2e
 def test_login_with_invalid_credentials(page):
