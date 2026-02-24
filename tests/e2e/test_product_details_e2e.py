@@ -14,7 +14,8 @@ def test_open_product_details(page):
     expect(page).to_have_url(lambda url: "/product_details/" in url)
 
     # Assert product details visible
-    expect(page.locator(".product-information")).to_be_visible()
-    expect(page.locator("text=Availability")).to_be_visible()
-    expect(page.locator("text=Condition")).to_be_visible()
-    expect(page.locator("text=Brand")).to_be_visible()
+    product_info = page.locator(".product-information")
+
+    expect(product_info).to_contain_text("Availability")
+    expect(product_info).to_contain_text("Condition")
+    expect(product_info).to_contain_text("Brand")
