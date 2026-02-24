@@ -10,7 +10,11 @@ def test_open_product_details(page):
     # Click first "View Product" link safely
     page.locator("a[href*='/product_details/']").first.click()
 
-    # Assert product details visible - need to fix this the first assertion doesn't pass
-    assert page.locator("text=Availability").is_visible()
-    assert page.locator("text=Condition").is_visible()
-    assert page.locator("text=Brand").is_visible()
+    # Wait until URL changes
+    expect(page).to_have_url(lambda url: "/product_details/" in url)
+
+    # Assert product details visible
+    expect(page.locator(".product-information")).to_be_visible()
+    expect(page.locator("text=Availability")).to_be_visible()
+    expect(page.locator("text=Condition")).to_be_visible()
+    expect(page.locator("text=Brand")).to_be_visible()
