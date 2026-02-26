@@ -9,6 +9,7 @@ def test_open_product_details(page):
 
     # Click first "View Product" link safely
     page.locator("a[href*='/product_details/']").first.click()
+    close_google_vignette_if_present(page)
 
     # Wait for correct navigation
     expect(page).to_have_url(re.compile(r".*/product_details/.*"))
@@ -19,3 +20,8 @@ def test_open_product_details(page):
     expect(product_info).to_contain_text("Availability")
     expect(product_info).to_contain_text("Condition")
     expect(product_info).to_contain_text("Brand")
+
+
+def close_google_vignette_if_present(page):
+    if "#google_vignette" in page.url:
+        page.goto(page.url.split("#")[0])
