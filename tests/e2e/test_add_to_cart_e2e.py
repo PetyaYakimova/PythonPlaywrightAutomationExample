@@ -32,7 +32,7 @@ def test_remove_product_from_cart(page):
     cart = CartPage(page)
 
     # Remove first item
-    page.click(".cart_quantity_delete")
+    cart.remove_first_item()
 
     # Assert cart empty
     expect(page.locator(".cart_product")).to_have_count(0)
