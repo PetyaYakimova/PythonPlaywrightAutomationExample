@@ -10,6 +10,10 @@ class ContactPage(BasePage):
         self.fill("input[name='email']", email)
         self.fill("input[name='subject']", subject)
         self.fill("textarea[name='message']", message)
+
+        # Handle alert BEFORE clicking submit
+        self.page.on("dialog", lambda dialog: dialog.accept())
+
         self.click("input[name='submit']")
 
     def success_visible(self):

@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from tests.e2e.pages.contact_page import ContactPage
 
