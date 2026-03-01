@@ -15,6 +15,3 @@ class ContactPage(BasePage):
         self.page.on("dialog", lambda dialog: dialog.accept())
 
         self.click("input[name='submit']")
-
-    def success_visible(self):
-        return self.is_visible("text=Success! Your details have been submitted successfully.")

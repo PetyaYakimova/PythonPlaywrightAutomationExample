@@ -18,4 +18,3 @@ def test_submit_contact_form(page):
     )
 
     expect(page.locator("div.status.alert-success")).to_be_visible()
-    # assert contact.success_visible()
