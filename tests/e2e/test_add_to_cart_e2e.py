@@ -9,9 +9,7 @@ def test_add_product_to_cart(page):
     products = ProductsPage(page)
     products.open()
 
-    # Hover first product and click "Add to cart"
-    page.hover(".product-image-wrapper")
-    page.click("text=Add to cart")
+    products.add_first_product_to_cart()
 
     # Click View Cart in modal
     page.click("text=View Cart")
