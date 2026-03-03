@@ -10,9 +10,7 @@ def test_add_product_to_cart(page):
     products.open()
 
     products.add_first_product_to_cart()
-
-    # Click View Cart in modal
-    page.click("text=View Cart")
+    products.view_cart()
 
     cart = CartPage(page)
     assert cart.has_items()
@@ -24,7 +22,7 @@ def test_remove_product_from_cart(page):
     products.open()
 
     products.add_first_product_to_cart()
-    page.click("text=View Cart")
+    products.view_cart()
 
     cart = CartPage(page)
 

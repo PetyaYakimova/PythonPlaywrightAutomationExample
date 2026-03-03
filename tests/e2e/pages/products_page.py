@@ -15,3 +15,6 @@ class ProductsPage(BasePage):
     def add_first_product_to_cart(self):
         self.page.hover(".product-image-wrapper")
         self.page.click("text=Add to cart")
+
+    def view_cart(self):
+        self.page.click("text=View Cart")
