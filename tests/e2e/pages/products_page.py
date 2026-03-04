@@ -18,3 +18,6 @@ class ProductsPage(BasePage):
 
     def view_cart(self):
         self.page.click("text=View Cart")
+
+    def click_filter(self, filter_name):
+        self.page.click(f"text={filter_name}")
