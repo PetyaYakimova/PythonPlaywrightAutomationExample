@@ -1,9 +1,11 @@
 import pytest
+from tests.e2e.pages.products_page import ProductsPage
 
 
 @pytest.mark.e2e
 def test_filter_by_category(page):
-    page.goto("https://automationexercise.com/products")
+    products = ProductsPage(page)
+    products.open()
 
     page.click("text=Women")
     page.click("text=Dress")
