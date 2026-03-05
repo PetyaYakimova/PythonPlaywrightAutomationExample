@@ -7,7 +7,8 @@ def test_filter_by_category(page):
     products = ProductsPage(page)
     products.open()
 
-    page.click("text=Women")
-    page.click("text=Dress")
+    products.click_filter("Women")
+    products.click_filter("Dress")
 
+    #Use product page for the following as well
     assert page.locator(".product-image-wrapper").count() > 0
