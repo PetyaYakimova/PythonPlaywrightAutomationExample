@@ -10,5 +10,4 @@ def test_filter_by_category(page):
     products.click_filter("Women")
     products.click_filter("Dress")
 
-    #Use product page for the following as well
     assert products.results_visible()
