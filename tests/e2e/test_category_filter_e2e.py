@@ -11,4 +11,4 @@ def test_filter_by_category(page):
     products.click_filter("Dress")
 
     #Use product page for the following as well
-    assert page.locator(".product-image-wrapper").count() > 0
+    assert products.results_visible()
