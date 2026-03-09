@@ -10,7 +10,7 @@ def test_guest_can_reach_checkout(page):
     products.open()
 
     products.add_first_product_to_cart()
-    page.click("text=View Cart")
+    products.view_cart()
 
     page.click("text=Proceed To Checkout")
 
