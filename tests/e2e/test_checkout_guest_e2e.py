@@ -13,7 +13,7 @@ def test_guest_can_reach_checkout(page):
     products.add_first_product_to_cart()
     products.view_cart()
 
-    cartPage = CartPage(page)
-    page.click("text=Proceed To Checkout")
+    cart_page = CartPage(page)
+    cart_page.proceed_to_checkout()
 
     expect(page.get_by_role("heading", name="Checkout")).to_be_visible()
