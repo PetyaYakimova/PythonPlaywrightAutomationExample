@@ -6,11 +6,11 @@ from tests.e2e.pages.cart_page import CartPage
 
 @pytest.mark.e2e
 def test_guest_can_reach_checkout(page):
-    products = ProductsPage(page)
-    products.open()
+    products_page = ProductsPage(page)
+    products_page.open()
 
-    products.add_first_product_to_cart()
-    products.view_cart()
+    products_page.add_first_product_to_cart()
+    products_page.view_cart()
 
     cart_page = CartPage(page)
     cart_page.proceed_to_checkout()
