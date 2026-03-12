@@ -5,10 +5,10 @@ from playwright.sync_api import expect
 
 @pytest.mark.e2e
 def test_submit_contact_form(page):
-    contact = ContactPage(page)
-    contact.open()
+    contact_page = ContactPage(page)
+    contact_page.open()
 
-    contact.submit_form(
+    contact_page.submit_form(
         name="Test User",
         email="test@test.com",
         subject="Test Subject",
