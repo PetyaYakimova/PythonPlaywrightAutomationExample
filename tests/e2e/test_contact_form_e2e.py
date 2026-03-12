@@ -1,5 +1,3 @@
-import time
-
 import pytest
 from tests.e2e.pages.contact_page import ContactPage
 from playwright.sync_api import expect
