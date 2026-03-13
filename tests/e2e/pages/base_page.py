@@ -13,3 +13,6 @@ class BasePage:
 
     def is_visible(self, selector):
         return self.page.locator(selector).is_visible()
+
+    def status_alert_success_locator(self):
+        return self.page.locator("div.status.alert-success")

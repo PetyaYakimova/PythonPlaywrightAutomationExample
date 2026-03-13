@@ -15,4 +15,4 @@ def test_submit_contact_form(page):
         message="This is a test message"
     )
 
-    expect(page.locator("div.status.alert-success")).to_be_visible()
+    expect(contact_page.status_alert_success_locator()).to_be_visible()
