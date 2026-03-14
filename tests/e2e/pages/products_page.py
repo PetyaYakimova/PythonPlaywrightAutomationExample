@@ -12,6 +12,9 @@ class ProductsPage(BasePage):
     def results_visible(self):
         return self.page.locator(".product-image-wrapper").count() > 0
 
+    def click_first_view_product(self):
+        return self.page.locator("a[href*='/product_details/']").first.click()
+
     def add_first_product_to_cart(self):
         self.page.hover(".product-image-wrapper")
         self.page.click("text=Add to cart")

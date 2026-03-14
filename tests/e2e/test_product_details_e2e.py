@@ -6,8 +6,8 @@ from tests.e2e.pages.products_page import ProductsPage
 
 @pytest.mark.e2e
 def test_open_product_details(page):
-    products = ProductsPage(page)
-    products.open()
+    products_page = ProductsPage(page)
+    products_page.open()
 
     # Click first "View Product" link safely
     page.locator("a[href*='/product_details/']").first.click()
