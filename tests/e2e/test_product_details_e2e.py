@@ -10,7 +10,7 @@ def test_open_product_details(page):
     products_page.open()
 
     # Click first "View Product" link safely
-    page.locator("a[href*='/product_details/']").first.click()
+    products_page.click_first_view_product()
     close_google_vignette_if_present(page)
 
     # Wait for correct navigation
