@@ -4,9 +4,9 @@ from tests.e2e.pages.products_page import ProductsPage
 
 @pytest.mark.e2e
 def test_search_product(page):
-    products = ProductsPage(page)
-    products.open()
+    products_page = ProductsPage(page)
+    products_page.open()
 
-    products.search("Top")
+    products_page.search("Top")
 
-    assert products.results_visible()
+    assert products_page.results_visible()
