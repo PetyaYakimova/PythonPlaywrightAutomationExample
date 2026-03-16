@@ -8,11 +8,11 @@ from playwright.sync_api import expect
 def test_user_can_signup_and_login(page):
     data = user_data()
 
-    login = LoginPage(page)
-    login.open()
+    login_page = LoginPage(page)
+    login_page.open()
 
-    login.start_signup(data)
-    login.complete_signup(data)
+    login_page.start_signup(data)
+    login_page.complete_signup(data)
 
     expect(page.locator("text=Account Created!")).to_be_visible()
 
