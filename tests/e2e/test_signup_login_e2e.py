@@ -22,9 +22,9 @@ def test_user_can_signup_and_login(page):
 
 @pytest.mark.e2e
 def test_login_with_invalid_credentials(page):
-    login = LoginPage(page)
-    login.open()
+    login_page = LoginPage(page)
+    login_page.open()
 
-    login.login("wrong@test.com", "wrongpass")
+    login_page.login("wrong@test.com", "wrongpass")
 
-    assert login.error_visible()
+    assert login_page.error_visible()
