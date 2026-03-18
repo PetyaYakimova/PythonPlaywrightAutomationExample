@@ -14,7 +14,7 @@ def test_user_can_signup_and_login(page):
     login_page.start_signup(data)
     login_page.complete_signup(data)
 
-    expect(page.locator("text=Account Created!")).to_be_visible()
+    expect(login_page.account_created_message_locator()).to_be_visible()
 
     page.click("text=Continue")
     expect(page.locator("text=Logged in as")).to_be_visible()
