@@ -46,3 +46,6 @@ class LoginPage(BasePage):
 
     def account_created_message_locator(self):
         return self.page.locator("text=Account Created!")
+
+    def click_continue_button(self):
+        return self.page.click("text=Continue")
