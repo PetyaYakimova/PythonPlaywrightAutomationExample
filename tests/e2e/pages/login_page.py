@@ -44,5 +44,5 @@ class LoginPage(BasePage):
 
         self.click("button[data-qa='create-account']")
 
-    def success_message_visible(self):
-        return self.is_visible("text=Account Created!")
+    def account_created_message_locator(self):
+        return self.page.locator("text=Account Created!")
