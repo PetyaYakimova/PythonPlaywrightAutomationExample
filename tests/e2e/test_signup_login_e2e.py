@@ -17,7 +17,7 @@ def test_user_can_signup_and_login(page):
     expect(login_page.account_created_message_locator()).to_be_visible()
 
     login_page.click_continue_button()
-    expect(page.locator("text=Logged in as")).to_be_visible()
+    expect(login_page.logged_in_message_locator()).to_be_visible()
 
 
 @pytest.mark.e2e
