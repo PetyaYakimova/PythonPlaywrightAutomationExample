@@ -16,3 +16,6 @@ class BasePage:
 
     def status_alert_success_locator(self):
         return self.page.locator("div.status.alert-success")
+
+    def logged_in_message_locator(self):
+        return self.page.locator("text=Logged in as")
