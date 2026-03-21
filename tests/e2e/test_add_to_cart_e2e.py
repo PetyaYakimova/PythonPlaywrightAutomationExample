@@ -6,14 +6,14 @@ from playwright.sync_api import expect
 
 @pytest.mark.e2e
 def test_add_product_to_cart(page):
-    products = ProductsPage(page)
-    products.open()
+    products_page = ProductsPage(page)
+    products_page.open()
 
-    products.add_first_product_to_cart()
-    products.view_cart()
+    products_page.add_first_product_to_cart()
+    products_page.view_cart()
 
-    cart = CartPage(page)
-    assert cart.has_items()
+    cart_page = CartPage(page)
+    assert cart_page.has_items()
 
 
 @pytest.mark.e2e
