@@ -18,11 +18,11 @@ def test_add_product_to_cart(page):
 
 @pytest.mark.e2e
 def test_remove_product_from_cart(page):
-    products = ProductsPage(page)
-    products.open()
+    products_page = ProductsPage(page)
+    products_page.open()
 
-    products.add_first_product_to_cart()
-    products.view_cart()
+    products_page.add_first_product_to_cart()
+    products_page.view_cart()
 
     cart = CartPage(page)
 
