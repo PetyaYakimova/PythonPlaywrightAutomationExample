@@ -24,10 +24,10 @@ def test_remove_product_from_cart(page):
     products_page.add_first_product_to_cart()
     products_page.view_cart()
 
-    cart = CartPage(page)
+    cart_page = CartPage(page)
 
     # Remove first item
-    cart.remove_first_item()
+    cart_page.remove_first_item()
 
     # Assert cart empty
     expect(page.locator(".cart_product")).to_have_count(0)
