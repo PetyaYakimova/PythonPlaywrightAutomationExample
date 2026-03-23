@@ -30,4 +30,4 @@ def test_remove_product_from_cart(page):
     cart_page.remove_first_item()
 
     # Assert cart empty
-    expect(page.locator(".cart_product")).to_have_count(0)
+    expect(cart_page.item_in_cart_locator()).to_have_count(0)
