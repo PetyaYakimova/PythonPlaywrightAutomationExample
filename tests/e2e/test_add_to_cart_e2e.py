@@ -12,8 +12,8 @@ def test_add_product_to_cart(page):
     products_page.add_first_product_to_cart()
     products_page.view_cart()
 
-    cart_page = CartPage(page)
-    assert cart_page.has_items()
+    cart = CartPage(page)
+    assert cart.has_items()
 
 
 @pytest.mark.e2e
