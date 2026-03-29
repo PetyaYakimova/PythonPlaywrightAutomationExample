@@ -12,8 +12,8 @@ def test_add_product_to_cart(page):
     products_page.add_first_product_to_cart()
     products_page.view_cart()
 
-    cart = CartPage(page)
-    assert cart.has_items()
+    cart_page = CartPage(page)
+    assert cart_page.has_items()
 
 
 @pytest.mark.e2e
@@ -26,8 +26,8 @@ def test_remove_product_from_cart(page):
 
     cart_page = CartPage(page)
 
-    # Remove first item
+    # Remove first item from the cart
     cart_page.remove_first_item()
 
-    # Assert cart empty
+    # Assert cart is empty
     expect(cart_page.item_in_cart_locator()).to_have_count(0)
