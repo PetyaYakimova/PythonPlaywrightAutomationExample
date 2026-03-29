@@ -12,6 +12,9 @@ class ProductsPage(BasePage):
     def results_visible(self):
         return self.page.locator(".product-image-wrapper").count() > 0
 
+    def product_description_locator(self):
+        return self.page.locator("div.productinfo > p")
+
     def click_first_view_product(self):
         return self.page.locator("a[href*='/product_details/']").first.click()
 
