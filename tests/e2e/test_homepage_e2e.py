@@ -6,11 +6,11 @@ from .pages.home_page import HomePage
 def test_homepage_title_and_products(page):
     home_page = HomePage(page)
 
-    # assert title contains site name
+    # Assert title contains site name
     assert "Automation Exercise" in home_page.title()
 
-    # click Products and assert we reach the products list
+    # Click Products and assert we reach the products list
     home_page.open_products()
-    # products page usually has "All Products" or product list; wait for a product card
+    # Products page usually has "All Products" or product list; wait for a product card
     assert page.locator("text=All Products").first.is_visible() or page.locator(
         "div.product-overlay").first.is_visible()
