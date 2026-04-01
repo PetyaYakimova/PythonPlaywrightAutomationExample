@@ -9,7 +9,7 @@ def test_open_product_details(page):
     products_page = ProductsPage(page)
     products_page.open()
 
-    # Click first "View Product" link safely
+    # Click first View Product link safely
     products_page.click_first_view_product()
     close_google_vignette_if_present(page)
 
