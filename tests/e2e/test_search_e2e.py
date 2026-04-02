@@ -1,4 +1,5 @@
 import pytest
+from playwright.sync_api import expect
 from tests.e2e.pages.products_page import ProductsPage
 
 
