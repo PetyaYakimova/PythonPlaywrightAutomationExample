@@ -10,4 +10,4 @@ def test_search_product(page):
 
     products_page.search("Top")
 
-    assert products_page.results_visible()
+    expect(products_page.get_first_product_description_locator()).to_contain_text('Top')
