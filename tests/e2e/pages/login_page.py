@@ -10,9 +10,6 @@ class LoginPage(BasePage):
         self.fill("input[data-qa='login-password']", password)
         self.click("button[data-qa='login-button']")
 
-    def error_visible(self):
-        return self.is_visible("text=Your email or password is incorrect!")
-
     def start_signup(self, data):
         self.fill("input[data-qa='signup-name']", data["name"])
         self.fill("input[data-qa='signup-email']", data["email"])
@@ -49,3 +46,9 @@ class LoginPage(BasePage):
 
     def click_continue_button(self):
         return self.page.click("text=Continue")
+
+    def error_visible(self):
+        return self.is_visible("text=Your email or password is incorrect!")
+
+    def login_error_locator(self):
+        return self.page.locator("text=Your email or password is incorrect!")
