@@ -27,4 +27,4 @@ def test_login_with_invalid_credentials(page):
 
     login_page.login("wrong@test.com", "wrongpass")
 
-    assert login_page.error_visible()
+    expect(login_page.login_error_locator()).to_be_visible()
