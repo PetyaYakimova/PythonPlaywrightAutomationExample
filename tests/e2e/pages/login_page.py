@@ -47,8 +47,5 @@ class LoginPage(BasePage):
     def click_continue_button(self):
         return self.page.click("text=Continue")
 
-    def error_visible(self):
-        return self.is_visible("text=Your email or password is incorrect!")
-
     def login_error_locator(self):
         return self.page.locator("text=Your email or password is incorrect!")
