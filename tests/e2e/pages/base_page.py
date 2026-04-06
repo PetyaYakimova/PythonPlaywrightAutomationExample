@@ -1,9 +1,13 @@
+import os
 from playwright.sync_api import Page
 
 
 class BasePage:
     def __init__(self, page: Page):
         self.page = page
+
+    def base_UI_URL(self):
+        return os.getenv("BASE_UI_URL")
 
     def click(self, selector):
         self.page.locator(selector).click()
