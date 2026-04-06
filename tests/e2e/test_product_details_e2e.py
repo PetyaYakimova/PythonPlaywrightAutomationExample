@@ -16,7 +16,7 @@ def test_open_product_details(page):
     # Wait for correct navigation
     expect(page).to_have_url(re.compile(r".*/product_details/.*"))
 
-    # Assert product details visible
+    # Assert product information is visible
     product_info = page.locator(".product-information")
 
     expect(product_info).to_contain_text("Availability")
