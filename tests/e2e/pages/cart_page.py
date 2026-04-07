@@ -3,7 +3,8 @@ from .base_page import BasePage
 
 class CartPage(BasePage):
     def open(self):
-        self.page.goto("https://automationexercise.com/view_cart")
+        # self.page.goto("https://automationexercise.com/view_cart")
+        self.page.goto(f"{super.base_UI_URL()}/view_cart")
 
     def remove_first_item(self):
         return self.page.click(".cart_quantity_delete")
