@@ -8,6 +8,7 @@ def test_filter_by_category(page):
     products_page = ProductsPage(page)
     products_page.open()
 
+    # Click filters
     products_page.click_filter("Women")
     products_page.click_filter("Dress")
 
