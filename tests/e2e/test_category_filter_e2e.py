@@ -12,4 +12,5 @@ def test_filter_by_category(page):
     products_page.click_filter("Women")
     products_page.click_filter("Dress")
 
+    # Assert the first result is filtered
     expect(products_page.get_first_product_description_locator()).to_contain_text('Dress')
